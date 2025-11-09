@@ -3,13 +3,13 @@ package grep_test
 import (
 	"strings"
 
-	yup "github.com/gloo-foo/framework"
+	gloo "github.com/gloo-foo/framework"
 	. "github.com/yupsh/grep"
 )
 
 func ExampleGrep_multiline() {
 	// echo -e "line one\nline two\nline three" | grep "line"
-	yup.MustRun(
+	gloo.MustRun(
 		Grep("line", strings.NewReader("line one\nline two\nline three")),
 	)
 	// Output:
@@ -17,4 +17,3 @@ func ExampleGrep_multiline() {
 	// line two
 	// line three
 }
-

@@ -179,13 +179,13 @@ package grep_test
 import (
 	"strings"
 
-	yup "github.com/yupsh/framework"
+	gloo "github.com/yupsh/framework"
 	. "github.com/yupsh/grep"
 )
 
 func ExampleGrep_myFeature() {
 	// echo -e "input" | grep [flags] "pattern"
-	yup.MustRun(
+	gloo.MustRun(
 		Grep("pattern", [flags...], strings.NewReader("input")),
 	)
 	// Output:
@@ -265,4 +265,3 @@ Grep("TODO", LineNumber, strings.NewReader(code))
 - [Grep Command Documentation](../../../grep/README.md)
 - [yupsh Framework Documentation](../../../framework/DESIGN.md)
 - [Go Examples Documentation](https://go.dev/blog/examples)
-

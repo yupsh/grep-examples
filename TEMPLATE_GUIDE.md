@@ -57,17 +57,17 @@ package grep_test
 import (
 	"strings"
 
-	yup "github.com/yupsh/framework"
+	gloo "github.com/yupsh/framework"
 	. "github.com/yupsh/grep"
 )
 
 func ExampleGrep_[featureName]() {
 	// echo -e "input" | grep [flags] "pattern"
-	yup.MustRun(
-		Grep("pattern", [flags...], strings.NewReader("input")),
-	)
-	// Output:
-	// expected output
+	gloo.MustRun(
+		Grep("pattern",[flags...], strings.NewReader("input")),
+)
+// Output:
+// expected output
 }
 ```
 
@@ -96,7 +96,7 @@ Every example function should have:
 ```go
 func ExampleGrep_ignoreCase() {
 	// echo -e "Apple\nBanana\napricot" | grep -i "APPLE"
-	yup.MustRun(
+	gloo.MustRun(
 		Grep("APPLE", IgnoreCase, strings.NewReader("Apple\nBanana\napricot")),
 	)
 	// Output:
@@ -162,14 +162,14 @@ Links to related documentation.
 
 ✅ **DO**:
 ```go
-yup.MustRun(
+gloo.MustRun(
 	Grep("pattern", strings.NewReader("input")),
 )
 ```
 
 ❌ **DON'T**:
 ```go
-err := yup.Run(Grep("pattern", strings.NewReader("input")))
+err := gloo.Run(Grep("pattern", strings.NewReader("input")))
 if err != nil {
 	fmt.Fprintf(os.Stderr, "error: %v\n", err)
 }
@@ -184,7 +184,7 @@ Only import what you need for each example:
 import (
 	"strings"
 
-	yup "github.com/yupsh/framework"
+	gloo "github.com/yupsh/framework"
 	. "github.com/yupsh/grep"
 )
 ```
@@ -207,7 +207,7 @@ Each example should demonstrate **one concept** clearly:
 ✅ **DO**: Simple, focused example
 ```go
 func ExampleGrep_invertMatch() {
-	yup.MustRun(
+	gloo.MustRun(
 		Grep("ap", Invert, strings.NewReader("apple\nbanana\napricot")),
 	)
 	// Output:
@@ -235,7 +235,7 @@ import (
 )
 
 func ExampleGrep_feature() {
-	yup.MustRun(
+	gloo.MustRun(
 		Grep("pattern", IgnoreCase, reader),
 	)
 }
@@ -248,7 +248,7 @@ import (
 )
 
 func ExampleGrep_feature() {
-	yup.MustRun(
+	gloo.MustRun(
 		grep.Grep("pattern", grep.IgnoreCase, reader),
 	)
 }
@@ -288,7 +288,7 @@ Before considering your examples complete:
 - [ ] Created separate test file for each feature
 - [ ] No package-level godoc in test files (use README.md instead)
 - [ ] Added equivalent command comment to each example
-- [ ] All examples use `yup.MustRun()`
+- [ ] All examples use `gloo.MustRun()`
 - [ ] Organized imports (stdlib, then framework, then command)
 - [ ] Created comprehensive README.md
 - [ ] Organized README from simple to sophisticated
@@ -326,4 +326,3 @@ If you're unsure about how to structure examples for a new command:
 ---
 
 **Remember**: These examples are not just tests—they're documentation, tutorials, and the first place users will look to learn your command. Make them excellent!
-

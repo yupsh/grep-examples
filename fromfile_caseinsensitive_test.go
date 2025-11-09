@@ -1,19 +1,18 @@
 package grep_test
 
 import (
-	yup "github.com/gloo-foo/framework"
+	gloo "github.com/gloo-foo/framework"
 	. "github.com/yupsh/grep"
 )
 
 // This example demonstrates case-insensitive matching in log files
 func ExampleGrep_fromFile_caseInsensitive() {
 	// cat testdata/mixed_case.txt | grep -i "error"
-	yup.MustRun(
-		Grep("error", IgnoreCase, yup.File("testdata/mixed_case.txt")),
+	gloo.MustRun(
+		Grep("error", IgnoreCase, gloo.File("testdata/mixed_case.txt")),
 	)
 	// Output:
 	// Error: failed to connect
 	// error: retry attempt
 	// ERROR: timeout occurred
 }
-

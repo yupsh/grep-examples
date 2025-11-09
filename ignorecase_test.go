@@ -3,16 +3,15 @@ package grep_test
 import (
 	"strings"
 
-	yup "github.com/gloo-foo/framework"
+	gloo "github.com/gloo-foo/framework"
 	. "github.com/yupsh/grep"
 )
 
 func ExampleGrep_ignoreCase() {
 	// echo -e "Apple\nBanana\napricot" | grep -i "APPLE"
-	yup.MustRun(
+	gloo.MustRun(
 		Grep("APPLE", IgnoreCase, strings.NewReader("Apple\nBanana\napricot")),
 	)
 	// Output:
 	// Apple
 }
-
